@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    parameters {
+        string(name: 'VERSION', defaultValue: 'C000X000B027', description: 'pkg version')
+    }
     stages {
         stage('Sync CI script') {
             steps {
@@ -22,7 +25,7 @@ pipeline {
                     }
                     axis {
                         name 'SCENE'
-                        values 'INSTALL', 'UPGRADE'
+                        values 'install', 'upgrade'
                     }
                     axis {
                         name 'MODE'
@@ -32,8 +35,11 @@ pipeline {
                 stages {
                     stage("${SCENE}") {
                         steps {
-                            sleep 5
-                            echo "done"
+                            build job: "dep_${SCENE}", parameters: [
+                                    string(name: 'VERSION', value: "${VERSION}"),
+                                    string(name: 'ARCH', value: "${ARCH}"),
+                                    string(name: 'MODE', value: "${MODE}")
+                            ]
                         }
                     }
                 }
