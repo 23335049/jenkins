@@ -35,11 +35,15 @@ pipeline {
                 stages {
                     stage("CALL") {
                         steps {
-                            build job: "dep_${SCENE}", parameters: [
-                                    string(name: 'VERSION', value: "${VERSION}"),
-                                    string(name: 'ARCH', value: "${ARCH}"),
-                                    string(name: 'MODE', value: "${MODE}")
-                            ]
+                            script {
+                                stage("${SCENE}_${ARCH}_${MODE}") {
+                                    build job: "dep_${SCENE}", parameters: [
+                                            string(name: 'VERSION', value: "${VERSION}"),
+                                            string(name: 'ARCH', value: "${ARCH}"),
+                                            string(name: 'MODE', value: "${MODE}")
+                                    ]
+                                }
+                            }
                         }
                     }
                 }
