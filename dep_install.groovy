@@ -6,24 +6,22 @@ pipeline {
         choice(name: 'MODE', choices: ['SINGLE', 'CLUSTER'], description: '组网模式')
     }
     stages {
-        stages {
-            stage("upload install pkg") {
-                steps {
-                    sleep 5
-                    echo "done"
-                }
+        stage("upload install pkg") {
+            steps {
+                sleep 5
+                echo "done"
             }
-            stage("uninstall") {
-                steps {
-                    sleep 5
-                    echo "done"
-                }
+        }
+        stage("uninstall") {
+            steps {
+                sleep 5
+                echo "done"
             }
-            stage("install") {
-                steps {
-                    sleep 5
-                    echo "done"
-                }
+        }
+        stage("install") {
+            steps {
+                sleep 5
+                echo "done"
             }
         }
     }
