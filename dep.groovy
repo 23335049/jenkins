@@ -29,16 +29,22 @@ pipeline {
                         }
                         stages {
                             stage("upload install pkg") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                             stage("uninstall") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                             stage("install") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                         }
                     }
@@ -57,20 +63,28 @@ pipeline {
                         }
                         stages {
                             stage("upload install pkg") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                             stage("rollback") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                             stage("backup") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                             stage("upgrade") {
-                                sleep 5
-                                echo "done"
+                                steps {
+                                    sleep 5
+                                    echo "done"
+                                }
                             }
                         }
                     }
