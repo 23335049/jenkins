@@ -13,6 +13,44 @@ pipeline {
                 echo "done"
             }
         }
+        stage('Install Upgrade') {
+            matrix {
+                axes {
+                    axis {
+                        name 'ARCH'
+                        values 'X86', 'ARM', 'VM-X86'
+                    }
+                    axis {
+                        name 'SCENE'
+                        values 'INSTALL', 'UPGRADE'
+                    }
+                    axis {
+                        name 'MODE'
+                        values 'SINGLE', 'CLUSTER'
+                    }
+                }
+                stages {
+                    stage("upload install pkg") {
+                        steps {
+                            sleep 5
+                            echo "done"
+                        }
+                    }
+                    stage("uninstall") {
+                        steps {
+                            sleep 5
+                            echo "done"
+                        }
+                    }
+                    stage("install") {
+                        steps {
+                            sleep 5
+                            echo "done"
+                        }
+                    }
+                }
+            }
+        }
         stage("Install") {
             matrix {
                 axes {
