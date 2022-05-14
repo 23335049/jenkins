@@ -33,7 +33,7 @@ pipeline {
                     }
                 }
                 stages {
-                    stage("${SCENE}") {
+                    stage("CASES") {
                         steps {
                             build job: "dep_${SCENE}", parameters: [
                                     string(name: 'VERSION', value: "${VERSION}"),
