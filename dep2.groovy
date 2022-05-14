@@ -21,7 +21,7 @@ pipeline {
                 axes {
                     axis {
                         name 'ARCH'
-                        values 'X86', 'ARM', 'VM-X86'
+                        values 'X86', 'ARM'
                     }
                     axis {
                         name 'SCENE'
@@ -33,7 +33,7 @@ pipeline {
                     }
                 }
                 stages {
-                    stage("CASES") {
+                    stage("CALL") {
                         steps {
                             build job: "dep_${SCENE}", parameters: [
                                     string(name: 'VERSION', value: "${VERSION}"),
